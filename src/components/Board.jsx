@@ -9,6 +9,7 @@ export default function Board() {
     { title: "Project C", like: "1", id: "3" },
     { title: "Project D", like: "", id: "4" },
   ]);
+  
   const [incomplete, setIncomplete] = useState([
     { title: "Project E", like: "9", id: "5" },
     { title: "Project F", like: "", id: "6" },
