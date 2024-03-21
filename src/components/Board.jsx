@@ -57,6 +57,8 @@ export default function Board() {
       case "4":
         setBacklog(removeItemById(taskId, backlog));
         break;
+        default:
+          break;
     }
   }
   function setNewState(destinationDroppableId, task) {
@@ -78,14 +80,16 @@ export default function Board() {
         updatedTask = { ...task, completed: false };
         setBacklog([updatedTask, ...backlog]);
         break;
+        default:
+        break;
     }
   }
   function findItemById(id, array) {
-    return array.find((item) => item.id == id);
+    return array.find((item) => item.id === id);
   }
 
   function removeItemById(id, array) {
-    return array.filter((item) => item.id != id);
+    return array.filter((item) => item.id !== id);
   }
   const handleAddItem = (item, columnId) => {
     switch (columnId) {

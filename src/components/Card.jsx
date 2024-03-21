@@ -26,7 +26,7 @@ const Container = styled.div`
 const TextContent = styled.div``;
 
 const Icons = styled.div`
-  // border:1px solid;
+ 
   width: max-content;
   display: flex;
   flex-direction: row;
@@ -34,17 +34,7 @@ const Icons = styled.div`
   gap: 15px;
   padding: 2px 5px;
 `;
-function bgcolorChange(props) {
-  return props.isDragging
-    ? "lightgreen"
-    : props.isDraggable
-    ? props.isBacklog
-      ? "#F2D7D5"
-      : "#DCDCDC"
-    : props.isBacklog
-    ? "#F2D7D5"
-    : "#EAF4FC";
-}
+
 
 export default function Card({ task, index }) {
   const generateRandomColor = () => {
