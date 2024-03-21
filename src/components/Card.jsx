@@ -1,11 +1,10 @@
 import React from "react";
 import { Draggable } from "react-beautiful-dnd";
 import styled from "styled-components";
-import { Avatar } from "antd";
+
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 
 import SubjectIcon from "@mui/icons-material/Subject";
-import { Modal, Button, Typography, Box, TextField } from "@mui/material";
 
 const Container = styled.div`
   border-radius: 10px;

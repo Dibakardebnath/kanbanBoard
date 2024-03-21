@@ -35,7 +35,7 @@ export default function Column({ title, tasks, id, onAddItem }) {
   });
   const handleOpen = () => {
     setOpen(true);
-    console.log("Open")
+    console.log("Open");
   };
 
   const handleClose = () => {
@@ -97,7 +97,6 @@ export default function Column({ title, tasks, id, onAddItem }) {
           gap: "5px",
           width: "max-content",
           margin: "2px 10px",
-        
         }}
         onClick={handleOpen}
       >
@@ -123,21 +122,21 @@ export default function Column({ title, tasks, id, onAddItem }) {
             Modal Content
           </Typography>
           <TextField
-  label="Project Name"
-  name="inputValue1"  // Ensure name prop matches state key
-  value={inputValue.inputValue1}
-  onChange={handleInputChange}
-  fullWidth
-  margin="normal"
-/>
-<TextField
-  label="Likes"
-  name="inputValue2"  // Ensure name prop matches state key
-  value={inputValue.inputValue2}
-  onChange={handleInputChange}
-  fullWidth
-  margin="normal"
-/>
+            label="Project Name"
+            name="inputValue1" // Ensure name prop matches state key
+            value={inputValue.inputValue1}
+            onChange={handleInputChange}
+            fullWidth
+            margin="normal"
+          />
+          <TextField
+            label="Likes"
+            name="inputValue2" // Ensure name prop matches state key
+            value={inputValue.inputValue2}
+            onChange={handleInputChange}
+            fullWidth
+            margin="normal"
+          />
 
           <Button
             variant="contained"
@@ -153,7 +152,6 @@ export default function Column({ title, tasks, id, onAddItem }) {
           </Button>
         </Box>
       </Modal>
-     
     </Container>
   );
 }

@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { DragDropContext } from "react-beautiful-dnd";
 import Column from "./Column";
-import AddIcon from "@mui/icons-material/Add";
 export default function Board() {
   const [completed, setCompleted] = useState([
     { title: "Project A", like: "", id: "1" },
@@ -9,7 +8,7 @@ export default function Board() {
     { title: "Project C", like: "1", id: "3" },
     { title: "Project D", like: "", id: "4" },
   ]);
-  
+
   const [incomplete, setIncomplete] = useState([
     { title: "Project E", like: "9", id: "5" },
     { title: "Project F", like: "", id: "6" },
@@ -105,7 +104,7 @@ export default function Board() {
       default:
         break;
     }
-  }
+  };
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
       <div
@@ -120,10 +119,30 @@ export default function Board() {
           gap: "10px",
         }}
       >
-        <Column title={"TO DO"} tasks={incomplete} id={"1"}  onAddItem={handleAddItem} />
-        <Column title={"In Progress"} tasks={completed} id={"2"}   onAddItem={handleAddItem}/>
-        <Column title={"REVIEW"} tasks={inReview} id={"3"}  onAddItem={handleAddItem}/>
-        <Column title={"Done"} tasks={backlog} id={"4"}  onAddItem={handleAddItem}/>
+        <Column
+          title={"TO DO"}
+          tasks={incomplete}
+          id={"1"}
+          onAddItem={handleAddItem}
+        />
+        <Column
+          title={"In Progress"}
+          tasks={completed}
+          id={"2"}
+          onAddItem={handleAddItem}
+        />
+        <Column
+          title={"REVIEW"}
+          tasks={inReview}
+          id={"3"}
+          onAddItem={handleAddItem}
+        />
+        <Column
+          title={"Done"}
+          tasks={backlog}
+          id={"4"}
+          onAddItem={handleAddItem}
+        />
       </div>
     </DragDropContext>
   );
