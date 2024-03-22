@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Draggable } from "react-beautiful-dnd";
 import styled from "styled-components";
 
@@ -8,7 +8,7 @@ import SubjectIcon from "@mui/icons-material/Subject";
 
 const Container = styled.div`
   border-radius: 10px;
-  box-shadow: 5px 5px 5px 2px grey;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   padding: 8px;
   color: #000;
   margin-bottom: 8px;
@@ -34,17 +34,27 @@ const Icons = styled.div`
   gap: 15px;
   padding: 2px 5px;
 `;
+const generateRandomColor = () => {
+  const letters = '0123456789ABCDEF';
+  let color = '#';
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+};
 
+const getRandomColorFromStorage = () => {
+  const storedColor = localStorage.getItem('randomColor');
+  return storedColor || generateRandomColor();
+};
 
 export default function Card({ task, index }) {
-  const generateRandomColor = () => {
-    const letters = "0123456789ABCDEF";
-    let color = "#";
-    for (let i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-  };
+
+  const [randomColor, setRandomColor] = useState(getRandomColorFromStorage);
+
+  useEffect(() => {
+    localStorage.setItem('randomColor', randomColor);
+  }, [randomColor]);
 
   return (
     <Draggable draggableId={`${task.id}`} key={task.id} index={index}>
@@ -62,18 +72,23 @@ export default function Card({ task, index }) {
             style={{
               display: "flex",
               flexDirection: "column",
-
+          //  border:"1px solid",
               textAlign: "left",
-              padding: "2px 8px",
+              marginBottom:"5px ",
+              width:"max-content",
+              marginLeft:"8px"
+              // padding: "2px 8px",
             }}
           >
             <hr
               style={{
+                // border: "1px solid",
                 backgroundColor: generateRandomColor(),
                 height: "1.2vh",
                 width: "2.8rem",
                 borderRadius: "5px",
-                margin: "0 1px",
+                marginLeft:"1px"
+                
               }}
             />
             <TextContent>{task.title}</TextContent>
@@ -84,7 +99,12 @@ export default function Card({ task, index }) {
               ""
             ) : (
               <div
-                style={{ display: "flex", alignItems: "center", gap: "5px" }}
+                style={{ 
+                 
+                  height:"3vh",
+                  display: "flex",
+                 alignItems: "center",
+                  gap: "5px" }}
               >
                 <ChatBubbleOutlineIcon />
                 <p>{task.like}</p>

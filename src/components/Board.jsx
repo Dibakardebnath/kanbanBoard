@@ -124,7 +124,7 @@ export default function Board() {
         }}
       >
         <Column
-          title={"TO DO"}
+          title={"To Do"}
           tasks={incomplete}
           id={"1"}
           onAddItem={handleAddItem}
@@ -136,7 +136,7 @@ export default function Board() {
           onAddItem={handleAddItem}
         />
         <Column
-          title={"REVIEW"}
+          title={"Review"}
           tasks={inReview}
           id={"3"}
           onAddItem={handleAddItem}

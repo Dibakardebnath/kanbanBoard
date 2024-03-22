@@ -63,11 +63,13 @@ export default function Column({ title, tasks, id, onAddItem }) {
     <Container className="column">
       <div
         style={{
+      
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          padding: "0px 10px",
-          marginTop: "5px",
+          padding: "0px 18px 0px 10px",
+          margin:"0px"
+         
         }}
       >
         <Title>{title}</Title>
